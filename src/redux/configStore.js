@@ -1,12 +1,16 @@
-import { createStore, combineReducers } from 'redux';
-import user from './modules/user';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunk from "redux-thunk";
+
+import User from './modules/user';
+import Post from './modules/post';
 
 // reducer를 뭉친것을 rootReducer 라고 정해준다.
 // reducer는 여러개 있을 수 있으므로 하나로 뭉쳐주는 작업이다.
-const rootReducer = combineReducers({ user });
+const rootReducer = combineReducers({ User, Post });
+const middlewares = [thunk];
+const enhancer = applyMiddleware(...middlewares);
 
-// 뭉쳐진 리듀서들을 넣어서 스토어를 만들어준다.
-// 리듀서뿐만 아니라 미들웨어나 필요한 것들도 같이 넣을 수 있다.
-const store = createStore(rootReducer);
+
+const store = createStore(rootReducer, enhancer);
 
 export default store;
