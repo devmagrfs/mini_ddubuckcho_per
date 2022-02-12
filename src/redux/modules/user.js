@@ -24,7 +24,6 @@ const loginDB = (id, password) => {
         const data = {
             loginId: id,
             password: password,
-            // name: "얍얍",
         }
         dispatch(login(data.name));
         api.post('/login', data)

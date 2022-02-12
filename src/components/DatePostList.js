@@ -1,21 +1,19 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from "react-router-dom";
 
 import { actionCreators as postActions } from '../redux/modules/post';
 import Post from './Post';
-import './LikePostList.css'
 
-function LikePostList(props) {
+function DatePostList(props) {
     const dispatch = useDispatch();
     const post_list = useSelector((state) => state.post.list);
 
+
     React.useEffect(() => {
         if (post_list.length === 0) {
-            dispatch(postActions.getLikePostDB());
+            dispatch(postActions.getDatePostDB());
         }
     }, [])
-
 
     // const post_list = [{
     //     title: "1번 사진",
@@ -48,7 +46,39 @@ function LikePostList(props) {
     //     like_count: 0,
     //     is_like: false,
     //     postId: 4
-    // }
+    // },
+    // {
+    //     title: "5번 사진",
+    //     thumbnail: "url 들어감",
+    //     like: "",
+    //     like_count: 0,
+    //     is_like: false,
+    //     postId: 1
+    // },
+    // {
+    //     title: "6번 사진",
+    //     thumbnail: "url 들어감",
+    //     like: "",
+    //     like_count: 0,
+    //     is_like: false,
+    //     postId: 2
+    // },
+    // {
+    //     title: "7번 사진",
+    //     thumbnail: "url 들어감",
+    //     like: "",
+    //     like_count: 0,
+    //     is_like: false,
+    //     postId: 3
+    // },
+    // {
+    //     title: "8번 사진",
+    //     thumbnail: "url 들어감",
+    //     like: "",
+    //     like_count: 0,
+    //     is_like: false,
+    //     postId: 4
+    // },
     // ]
 
     return (
@@ -61,6 +91,7 @@ function LikePostList(props) {
                 })}
             </div>
         </>
-    )
+    );
 }
-export default LikePostList;
+
+export default DatePostList;

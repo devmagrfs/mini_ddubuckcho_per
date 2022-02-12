@@ -1,14 +1,14 @@
 import { Route } from "react-router-dom";
 import './App.css';
 import Login from "./pages/Login";
-import LikePostList from './components/LikePostList';
+import MainPage from './pages/Mainpage';
 
 
 function App() {
 	return (
 		<>
 			<Route path="/login" exact component={Login} />
-			<Route path="/" exact component={LikePostList} />
+			<Route path="/" exact component={MainPage} />
 		</>
 	);
 }

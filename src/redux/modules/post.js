@@ -1,4 +1,3 @@
-import axios from "axios";
 import { createAction, handleActions } from "redux-actions";
 import { produce } from "immer";
 
@@ -21,12 +20,32 @@ const initialState = {
 // middleware actions
 const getLikePostDB = () => {
     return async function (dispatch, getState) {
-        await api.get('/')
+        await api.get('/', {
+            params: {
+                _limit: 4
+            }
+        })
             .then((response) => {
                 console.log(response);
                 // dispatch(getPost(response.data.sortbyLike));
             }).catch((err) => {
                 console.log(err);
+            })
+    }
+}
+
+const getDatePostDB = () => {
+    return async function (dispatch, getState) {
+        await api.get('/', {
+            params: {
+                _limit: 10
+            }
+        })
+            .then((response) => {
+                console.log(response);
+                dispatch(getPost(response.data.sortbyDate));
+            }).catch((err) => {
+                console.log(err)
             })
     }
 }
@@ -44,6 +63,7 @@ export default handleActions({
 const actionCreators = {
     getPost,
     getLikePostDB,
+    getDatePostDB,
 };
 
 export { actionCreators };
