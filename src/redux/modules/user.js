@@ -26,11 +26,12 @@ const loginDB = (id, password) => {
             password: password,
         }
         dispatch(login(data.name));
-        api.post('/login', data)
+        api.post('/api/login', data)
             .then((response) => {
                 console.log(response);
                 if (response.token) {
-                    localStorage.setItem('token', response.token);
+                    localStorage.setItem('token', response.data.token);
+                    localStorage.setItem('name', response.data.name);
                     dispatch(login(response.name))
                 }
             }).catch((err) => {

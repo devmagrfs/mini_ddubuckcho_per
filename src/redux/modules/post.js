@@ -27,7 +27,7 @@ const getLikePostDB = () => {
         })
             .then((response) => {
                 console.log(response);
-                // dispatch(getPost(response.data.sortbyLike));
+                dispatch(getPost(response.data.sortbyLike));
             }).catch((err) => {
                 console.log(err);
             })
