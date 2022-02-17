@@ -1,9 +1,10 @@
-.postContainer {
+/* .slick-list {
     width: 80%;
-    border: 2px solid green;
-    margin: 20px auto;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    box-shadow: 3px 3px 3px 3px #999;
-}
+    margin: 0 auto;
+    border: 2px solid red;
+} */
+
+/* .slick-slide {
+    border: 2px solid blue;
+    width: 100%;
+} */

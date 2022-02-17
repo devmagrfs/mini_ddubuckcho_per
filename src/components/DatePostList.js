@@ -83,7 +83,7 @@ function DatePostList(props) {
 
     return (
         <>
-            <div className="postContainer">
+            <div className="postDateContainer">
                 {post_list.map((p, idx) => {
                     return (
                         <Post key={idx} {...p} />
